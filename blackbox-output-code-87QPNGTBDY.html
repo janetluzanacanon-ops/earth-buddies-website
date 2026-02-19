@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth Buddies | Recycle, Earn, Protect</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --primary: #2E7D32;       /* Forest Green */
+            --secondary: #66BB6A;     /* Leaf Green */
+            --accent: #F1F8E9;        /* Light Beige */
+            --text: #333333;          /* Charcoal */
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Segoe UI', sans-serif; /* Ideally 'Poppins' */
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        a { text-decoration: none; }
+        
+        /* --- UTILITIES --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #1B5E20;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: none; /* Hidden on mobile, shown via media query */
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover { color: var(--secondary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        /* --- HOW IT WORKS --- */
+        .section {
+            padding: 60px 0;
+        }
+
+        .bg-light { background-color: var(--accent); }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--secondary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+        }
+
+        .step-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* --- FEATURES --- */
+        .features-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 1fr;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+
+        .feature-icon {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- IMPACT --- */
+        .impact-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- CTA DOWNLOAD --- */
+        .download-section {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .download-section h2 { color: var(--white); }
+
+        .app-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #fff;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #222;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            margin: 0 10px;
+        }
+
+        /* --- MEDIA QUERIES (Desktop) --- */
+        @media (min-width: 768px) {
+            .nav-links { display: block; }
+            
+            .hero { padding: 120px 0; }
+            .hero h1 { font-size: 3.5rem; }
+            
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .steps-grid, .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-leaf"></i> Earth Buddies
+                </div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#features">Features</a>
+                    <a href="#impact">Impact</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <a href="#download" class="btn btn-primary">Download App</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Recycle. Earn. <br>Protect the Planet.</h1>
+            <p>The mobile app that makes recycling fun and rewarding. Track your impact, compete with friends, and redeem exclusive eco-rewards.</p>
+            <div class="hero-buttons">
+                <a href="#download" class="btn btn-primary">Download the App</a>
+                <a href="#partners" class="btn btn-outline">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">How Earth Buddies Works</h2>
+            <div class="steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-camera"></i>
+                    <h3>Recycle</h3>
+                    <p>Collect your recyclables and find a drop-off point or use our pickup service.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-qrcode"></i>
+                    <h3>Verify</h3>
+                    <p>Scan the QR code at the bin or upload a photo of your sorted waste.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-coins"></i>
+                    <h3>Earn</h3>
+                    <p>Instantly earn "Eco-Points" based on the weight and type of material.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
