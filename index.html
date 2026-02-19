@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Earth Buddies | Recycle, Earn, Protect</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #2E7D32;
+    --secondary: #66BB6A;
+    --accent: #F1F8E9;
+    --text: #333;
+    --white: #fff;
+    --shadow: 0 4px 6px rgba(0,0,0,.1);
+    --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-outline {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+}
+
+/* HEADER */
+header {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.nav-links { display: none; }
+
+.nav-links a {
+    margin-left: 20px;
+    color: var(--text);
+}
+
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(255,255,255,.9),rgba(255,255,255,.8)),
+    url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09');
+    background-size: cover;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+/* SECTIONS */
+.section { padding: 60px 0; }
+.bg-light { background: var(--accent); }
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+/* GRIDS */
+.steps-grid,
+.features-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.step-card,
+.feature-item {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--secondary);
+    color: #fff;
+    border-radius: 50%;
+    margin: auto;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-card i,
+.feature-item i {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+/* IMPACT */
+.impact-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 20px;
+}
+
+/* DOWNLOAD */
+.download-section {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.store-btn {
+    background: #000;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+    .nav-links { display: block; }
+    .steps-grid, .features-grid {
+        grid-template-columns: repeat(4,1fr);
+    }
+    .hero h1 { font-size: 3.5rem; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<nav>
+<div class="logo"><i class="fas fa-leaf"></i> Earth Buddies</div>
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#how">How It Works</a>
+<a href="#features">Features</a>
+<a href="#impact">Impact</a>
+<a href="#contact">Contact</a>
+</div>
+<a href="#download" class="btn btn-primary">Download App</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="container">
+<h1>Recycle. Earn. Protect the Planet.</h1>
+<p>Turn your recycling into rewards while helping build a cleaner, greener future.</p>
+<a href="#download" class="btn btn-primary">Get Started</a>
+</div>
+</section>
+
+<section id="about" class="section">
+<div class="container">
+<h2 class="section-title">About Earth Buddies</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+Earth Buddies is a sustainability-focused mobile app that rewards users for proper recycling through points, games, and incentives.
+</p>
+</div>
+</section>
+
+<section id="how" class="section bg-light">
+<div class="container">
+<h2 class="section-title">How It Works</h2>
+<div class="steps-grid">
+<div class="step-card"><div class="step-number">1</div><i class="fas fa-recycle"></i><h3>Recycle</h3></div>
+<div class="step-card"><div class="step-number">2</div><i class="fas fa-qrcode"></i><h3>Verify</h3></div>
+<div class="step-card"><div class="step-number">3</div><i class="fas fa-coins"></i><h3>Earn</h3></div>
+<div class="step-card"><div class="step-number">4</div><i class="fas fa-gift"></i><h3>Redeem</h3></div>
+</div>
+</div>
+</section>
+
+<section id="features" class="section">
+<div class="container">
+<h2 class="section-title">Features</h2>
+<div class="features-grid">
+<div class="feature-item"><i class="fas fa-map-marker-alt"></i><p>Recycling Map</p></div>
+<div class="feature-item"><i class="fas fa-gamepad"></i><p>Eco Games</p></div>
+<div class="feature-item"><i class="fas fa-trophy"></i><p>Leaderboards</p></div>
+<div class="feature-item"><i class="fas fa-chart-line"></i><p>Impact Tracking</p></div>
+</div>
+</div>
+</section>
+
+<section id="impact" class="section bg-light">
+<div class="container">
+<h2 class="section-title">Our Impact</h2>
+<div class="impact-stats">
+<div><h3>10K+</h3><p>Users</p></div>
+<div><h3>5T</h3><p>Waste Recycled</p></div>
+<div><h3>50+</h3><p>Partners</p></div>
+</div>
+</div>
+</section>
+
+<section id="download" class="download-section">
+<div class="container">
+<h2>Download Earth Buddies</h2>
+<div>
+<div class="store-btn"><i class="fab fa-google-play"></i> Google Play</div>
+<div class="store-btn"><i class="fab fa-apple"></i> App Store</div>
+</div>
+</div>
+</section>
+
+<footer id="contact">
+<p>© 2026 Earth Buddies</p>
+<div class="footer-links">
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+</div>
+</footer>
+
+</body>
+</html>
